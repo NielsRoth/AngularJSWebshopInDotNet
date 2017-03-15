@@ -1,0 +1,42 @@
+﻿<style>
+    .ng-invalid {
+        background-color: lightpink;
+    }
+    .ng-valid {
+        background-color: lightgreen;
+    }
+    span.error { color: red; font-weight: bold; }
+</style>
+
+<h2>Check out</h2>
+<p>Geef uw gegevens in</p>
+
+<form name="shippingForm" novalidate>
+    <div class="well">
+        <h3>Verzenden naar</h3>
+        <div class="form-group">
+            <label>Naam</label>
+            <input name="name" class="form-control" ng-model="data.shipping.name" required />
+            <span class="error" ng-show="shippingForm.name.$error.required">Geef een naam in</span>
+        </div>
+
+        <h3>Adres</h3>
+        <div class="form-group">
+            <label>Straat</label>
+            <input name="street" class="form-control" ng-model="data.shipping.street" required />
+            <span class="error" ng-show="shippingForm.street.$error.required">Geef een straat in</span>
+        </div>
+
+        <h3>Opties</h3>
+        <div class="checkbox">
+            <label>
+                <input name="giftwrap" type="checkbox" ng-model="data.shipping.giftwrap" />
+                Inpakken
+            </label>
+        </div>
+
+        <div class="text-center">
+            <button ng-disabled="shippingForm.$invalid" ng-click="sendOrder(data.shipping)" class="btn btn-primary">Verzenden</button>
+        </div>
+    </div>
+</form>

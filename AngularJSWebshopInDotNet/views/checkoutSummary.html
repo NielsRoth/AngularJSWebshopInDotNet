@@ -1,0 +1,41 @@
+﻿<h2>Uw winkelwagen</h2>
+
+<div ng-controller="cartSummaryController">
+
+    <div class="alert alert-warning" ng-show="cartData.length == 0">
+        Geen producten in uw winkelwagen
+        <a href="#products" class="alert-link">Klik hier om terug te gaan naar de catalogus</a>
+    </div>
+
+    <div ng-hide="cartData.length == 0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Aantal</th>
+                    <th>Artikel</th>
+                    <th class="text-right">Prijs</th>
+                    <th class="text-right">Subtotaal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in cartData">
+                    <td class="text-center">{{item.count}}</td>
+                    <td class="text-left">{{item.name}}</td>
+                    <td class="text-right">{{item.price | currency}}</td>
+                    <td class="text-right">{{ (item.price * item.count) | currency }}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" class="text-right">Totaal:</td>
+                    <td class="text-right">{{total() | currency}}</td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <div class="text-center">
+            <a class="btn btn-primary" href="#/products">Doorgaan</a>
+            <a class="btn btn-primary" href="#placeorder">Naar Betalen</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+﻿<div class="alert alert-danger" ng-show="data.orderError">Error ({{data.ordererror.status}}). De order is niet geplaatst!
+    <a href="#placeorder" class="alert-link">Klik hier om het opnieuw te proberen</a>
+</div>
+
+<div class="well" ng-hide="data.orderError">
+    <h2>Dank u</h2>
+    Dank u voor uw order. Referentienummer: {{data.orderId}}.
+</div>
